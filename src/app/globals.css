@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+    font-family: var(--font-family), sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-text-primary border border-border px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-surface rounded-xl shadow-premium p-6 transition-all duration-300 hover:shadow-premium-hover border border-border/50;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-border rounded-lg bg-white text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-text-secondary mb-2;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  /* Slick Carousel Styles Override */
+  .slick-slider {
+    @apply touch-pan-y select-none;
+  }
+
+  .slick-list {
+    @apply overflow-hidden m-0 p-0;
+  }
+
+  .slick-track {
+    @apply flex;
+  }
+
+  .slick-slide {
+    @apply h-full min-h-[1px];
+  }
+
+  .slick-slide > div {
+    @apply h-full;
+  }
+
+  .slick-dots {
+    @apply flex justify-center gap-3 absolute bottom-6 w-full z-10;
+  }
+
+  .slick-dots li {
+    @apply w-2.5 h-2.5 rounded-full bg-white/40 cursor-pointer transition-all duration-300;
+  }
+
+  .slick-dots li.slick-active {
+    @apply bg-white w-8;
+  }
+
+  .slick-dots li button {
+    @apply hidden;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+}
