@@ -10,6 +10,7 @@ const LoginForm = () => {
     const [password, setPassword] = useState('vemulanarendra')
     const [showSubmitError, setShowSubmitError] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const router = useRouter()
 
     useEffect(() => {
@@ -38,7 +39,7 @@ const LoginForm = () => {
         let apiUsername = username
         let apiPassword = password
 
-       
+
 
         const userDetails = { username: 'rahul', password: 'rahul@2021' }
         const url = 'https://apis.ccbp.in/login'
@@ -104,13 +105,28 @@ const LoginForm = () => {
                             PASSWORD
                         </label>
                         <input
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             id="password"
                             className="input-field"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             placeholder="Enter Password"
                         />
+                        <div className="flex items-center mt-3">
+                            <input
+                                type="checkbox"
+                                id="showPassword"
+                                className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                                checked={showPassword}
+                                onChange={() => setShowPassword(prev => !prev)}
+                            />
+                            <label
+                                htmlFor="showPassword"
+                                className="ml-2 text-sm text-gray-600 cursor-pointer select-none"
+                            >
+                                Show Password
+                            </label>
+                        </div>
                     </div>
 
                     <button type="submit" className="btn-primary w-full">
