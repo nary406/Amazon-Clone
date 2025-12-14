@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 const LoginForm = () => {
-    const [username, setUsername] = useState('nary')
-    const [password, setPassword] = useState('naryxyzo33@')
+    const [username, setUsername] = useState('narendra')
+    const [password, setPassword] = useState('vemulanarendra')
     const [showSubmitError, setShowSubmitError] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
     const router = useRouter()
@@ -38,14 +38,9 @@ const LoginForm = () => {
         let apiUsername = username
         let apiPassword = password
 
-        if (username === 'nary') {
-            apiUsername = "rahul"
-        }
-        if (password === 'naryxyzo33@') {
-            apiPassword = "rahul@2021"
-        }
+       
 
-        const userDetails = { username: apiUsername, password: apiPassword }
+        const userDetails = { username: 'rahul', password: 'rahul@2021' }
         const url = 'https://apis.ccbp.in/login'
         const options = {
             method: 'POST',
